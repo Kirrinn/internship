@@ -1,0 +1,24 @@
+debug: false
+server:
+  port: 9091
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test1
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  application:
+    name: springFramework
+  jpa:
+
+    hibernate:
+      ddl-auto: update  # Options: 'none', 'update', 'create', 'create-drop' (adjust as needed)
+    show-sql: true  # Optional: Enables SQL logging in the console
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  # PostgreSQL dialect for Hibernate
+    generate-ddl: false  # Optional: Don't automatically generate DDL
+
+  # Optional: Configuration for JPA/Hibernate transaction management
+  transaction:
+    rollback-on-commit-failure: true
