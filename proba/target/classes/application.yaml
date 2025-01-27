@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test1
+    username: postgres
+    password: postgres
+  application:
+    name: proba
+  jpa:
+    show-sql: false

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name = openaAPI
+server:
+  port: 9091

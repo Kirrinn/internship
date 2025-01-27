@@ -1,0 +1,211 @@
+openapi: 3.0.0
+info:
+  title: Library API
+  description: This API provides description for API of library project.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:9091/api
+    description: Entry point for library project.
+
+paths:
+  /books:
+    get:
+      tags: ["books-controller"]
+      summary: Return list of books.
+      responses:
+        "200": # status code
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BookDto"
+    post:
+      tags: ["books-controller"]
+      summary: Add a book.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookDto"
+            example:
+              title: Test
+              publicationYear: 2001
+              author: Sekspir
+              publisher: Klet
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        "404":
+          description: Not found
+  /books/{id}:
+    get:
+      tags: ["books-controller"]
+      summary: Returna a book with specific id.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: The id of the book.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookDto"
+        "404":
+          description: Not Found
+
+  /publishers:
+    post:
+      tags: ["publisher-controller"]
+      summary: Add a publisher.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PublisherDto"
+            example:
+              name: Logos
+              country: Serbia
+
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+
+
+  /author/{id}:
+    get:
+      tags: ["author-controller"]
+      summary: Get author with specific id.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: Id of the author.
+
+      responses:
+        "404":
+          description: Not Found
+
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthorDto"
+    put:
+      tags: ["author-controller"]
+      summary: Change author with specific id.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: Id of the author.
+
+      responses:
+        "500":
+          description: Internal server error
+
+        "202":
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthorDto"
+            example:
+              name: null
+              year: null
+              nationality: English
+
+
+  /author:
+    post:
+      tags: ["author-controller"]
+      summary: Add a author.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthorDto"
+            example:
+              name: Nemanja Stojakovski
+              year: 2001
+              nationality : Bulgarian
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+
+components:
+  schemas:
+    BookDto:
+      type: object
+      properties:
+        title:
+          type: string
+        publicationYear:
+          type: integer
+        author:
+          type: string
+        publisher:
+          type: string
+    AuthorDto:
+      type: object
+      properties:
+        name:
+          type: string
+        year:
+          type: integer
+        nationality:
+          type: string
+    PublisherDto:
+      type: object
+      properties:
+        name:
+          type: string
+        country:
+          type: string
+
+
+
+
+

@@ -1,0 +1,5 @@
+com\example\model\AuthorDto.class
+com\example\model\BookDto$BookDtoBuilder.class
+com\example\model\BookDto.class
+com\example\model\PublisherDto.class
+com\example\model\PublisherDto$PublisherDtoBuilder.class
