@@ -1,0 +1,14 @@
+
+server:
+  port: 9091
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  application:
+    name: library-project
+  jpa:
+    show-sql: false
