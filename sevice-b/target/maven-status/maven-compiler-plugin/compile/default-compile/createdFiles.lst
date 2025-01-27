@@ -1,0 +1,7 @@
+org\example\seviceb\model\PublisherServiceBDto.class
+org\example\seviceb\model\AuthorServiceBDto.class
+org\example\seviceb\controller\ControllerServiceB.class
+org\example\seviceb\model\BookServiceBDto.class
+org\example\seviceb\SeviceBApplication.class
+org\example\seviceb\service\BTestService.class
+org\example\seviceb\service\BTestService$1.class
