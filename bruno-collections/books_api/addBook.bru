@@ -1,0 +1,20 @@
+meta {
+  name: addBook
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://localhost:9091/api/books
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title":"Test6",
+    "publicationYear":2001,
+    "author":"Sekspir",
+    "publisher":"Klet"
+  }
+}

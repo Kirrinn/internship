@@ -1,0 +1,19 @@
+meta {
+  name: addAuthor
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:9091/api/author
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name":"Test",
+    "year":111,
+    "nationality":"English"
+  }
+}

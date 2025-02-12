@@ -1,0 +1,20 @@
+meta {
+  name: changeBook
+  type: http
+  seq: 8
+}
+
+put {
+  url: http://localhost:9091/api/books
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "author":"Gete",
+    "publisher":"Kosmos",
+    "title":"Na drini cuprija",
+    "publicationYear":2001
+  }
+}

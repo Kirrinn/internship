@@ -1,0 +1,19 @@
+meta {
+  name: addPublisher
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost:9091/api/publishers
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  
+    "name":"Zavod za udzbenike",
+    "country":"Serbia"
+  }
+}
